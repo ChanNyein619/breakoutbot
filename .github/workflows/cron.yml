@@ -1,0 +1,27 @@
+name: Cron Tests Lastest Rasa Version
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install
+      run: pip install rasa
+    - name: Validate Rasa
+      run: rasa data validate
+    - name: Run conversational unit tests
+      run: |
+        rasa train
+        rasa test --stories tests/conversation_tests.yml --fail-on-prediction-errors
