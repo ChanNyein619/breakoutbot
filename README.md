@@ -1,6 +1,7 @@
 # breakoutbot
 This repository contains an example project of a text-based adventure game built with Rasa. 
-The goal is to host and maintain a proper text based escape room that you can play with. 
+The goal is to host and maintain a proper text based escape room that you can play with. ![image](https://user-images.githubusercontent.com/80990018/138997898-dbe21beb-a82e-4df0-bd40-187a7c49a964.png)
+
 This project is open to outside contributions and we're recording the milestones/lessons learned in a series on Youtube.
 
 # Start Locally
